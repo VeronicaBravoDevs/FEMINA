@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="utf-8">
+  <title>Femina | E-commerce  </title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Femina women clothes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="WildRose">
+  <meta name="generator" content="Femina on line">
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/logoFemina-min.png" />
+  
+  <!-- Themefisher Icon font -->
+  <link rel="stylesheet" href="plugins/themefisher-font/style.css">
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+  
+  <!-- Animate css -->
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+
+<!-- sweet alert -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body id="body">
+
+<!-- Start Top Header Bar -->
+<section class="top-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-xs-12 col-sm-3">
+				
+			</div>
+			<div class="col-md-5 col-xs-12 col-sm-3">
+				<!-- Site Logo -->
+				<div class="logo text-center">
+					<a href="index.html">
+						<!-- replace logo here -->
+						<img src="images/logoFemina-ppal.jpg" alt="">
+					</a>
+				</div>
+			</div>
+			<div class="col-md-4 col-xs-12 col-sm-4">
+				<!-- Cart -->
+				<ul class="top-menu text-right list-inline">
+					<li class="dropdown cart-nav dropdown-slide">
+						<a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+								class="tf-ion-android-cart"></i>Compra</a>
+						<div class="dropdown-menu cart-dropdown">
+							<!-- Cart Item -->
+							<div class="media">
+								<table class="table">
+									<thead>
+									  <tr>
+										<th scope="col">#</th>
+										<th scope="col">Item</th>
+										<th scope="col">Cantidad</th>
+										<th scope="col">Agregar/Quitar</th>
+										<th scope="col">Total</th>
+									  </tr>
+									</thead>
+									<tbody id="items"></tbody>
+									<tfoot>
+									  <tr id="footer-carrito">
+										  <th scope="row" colspan="5"> Que te gustaria vestir??</th>
+									  </tr>
+									</tfoot>
+								  </table>				
+
+
+							</div>
+							<ul class="text-center cart-buttons">
+								
+								<li><a href="card.html" class="btn btn-small btn-solid-border">COMPRA</a></li>
+							</ul>
+						</div>
+
+					</li><!-- / Cart -->				
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</section><!-- End Top Header Bar -->
+
+
+<!-- Main Menu Section -->
+<section class="menu">
+	<nav class="navbar navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<h2 class="menu-title">MENU</h2>
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+					aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Navegacion</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div> 
+
+			<!-- Navbar Links -->
+			<div id="navbar" class="navbar-collapse collapse text-center">
+				<ul class="nav navbar-nav">
+					<!-- Home -->
+					<li class="dropdown ">
+						<a href="index.html">Home</a>
+					</li><!-- / Home -->
+					<li class="dropdown ">
+						<a href="nosotros.html">Nosotros</a>
+					</li><!-- /nosotros -->
+					<li class="dropdown ">
+						<a href="contacto.html">Contacto</a>
+					</li><!-- / contacto -->
+				</ul><!-- / .nav .navbar-nav -->
+			</div>			
+		</div><!-- / .container -->
+	</nav>
+</section>
+
+<!-- /////////////////////////////////// -->
+<div class="container">
+    <h1 class="text-center">Compra on line</h1>
+    <hr>
+
+    <div class="my-5 d-none">
+        <h4>Tu compra</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Item</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Agregar/Quitar</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody id="items"></tbody>
+          <tfoot>
+            <tr id="footer-carrito">
+                <th scope="row" colspan="5"> Que te gustaria vestir??</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+    <div class="row" id="contenedor-productos"></div>
+ 
+
+</div>
+
+<template id="template-footer">
+    <th scope="row" colspan="2">Total </th>
+    <td>10</td>
+    <td>
+        <button class="btn btn-danger btn-sm" id="vaciar-carrito">
+            LIMPIAR
+        </button>
+    </td>
+    <td class="font-weight-bold">$ <span>5000</span></td>
+</template>
+
+<template id="template-carrito">
+  <tr>
+    <th scope="row">id</th>
+    <td>BARCELONA</td>
+    <td>1</td>
+    <td>
+        <button class="btn btn-info btn-sm">
+            +
+        </button>
+        <button class="btn btn-danger btn-sm">
+            -
+        </button>
+    </td>
+    <td>$ <span>5000</span></td>
+  </tr>
+</template>
+
+<template id="template-productos">
+    <div class="col-12 col-md-4 mb-3">
+        <div class="card">
+            <img src="" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">
+                  BARCELONA
+              </h5>
+              <p class="card-text">$ <span>5000</span></p>
+              <button class="btn btn-dark">
+                  Comprar
+              </button>
+            </div>
+          </div>
+    </div>
+</template>
+
+<!-- /////////////////////////////////// -->
+<footer class="footer section text-center">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="social-media">
+					<li>
+						<a href="https://www.facebook.com/themefisher">
+							<i class="tf-ion-social-facebook"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.instagram.com/themefisher">
+							<i class="tf-ion-social-instagram"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.twitter.com/themefisher">
+							<i class="tf-ion-social-twitter"></i>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.pinterest.com/themefisher/">
+							<i class="tf-ion-social-pinterest"></i>
+						</a>
+					</li>
+				</ul>
+				<ul class="footer-menu text-uppercase">
+					<li>
+						<a href="contacto.html">CONTACTO</a>
+					</li>
+					<li>
+						<a href="nosotors.html">NOSOTROS</a>
+					</li>
+					
+				</ul>
+				<p class="copyright-text">Copyright &copy;2022, Designed &amp; Developed by <a href="https:wildrose.com">Wildrose</a></p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+ 
+    
+    <!-- Main jQuery -->
+    <script src="plugins/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.1 -->
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Touchpin -->
+    <script src="plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <!-- Instagram Feed Js 
+    <script src="plugins/instafeed/instafeed.min.js"></script>-->
+    <!-- Video Lightbox Plugin 
+    <script src="plugins/ekko-lightbox/dist/ekko-lightbox.min.js"></script>-->
+    <!-- Count Down Js
+    <script src="plugins/syo-timer/build/jquery.syotimer.min.js"></script> -->
+
+    <!-- slick Carousel -->
+    <script src="plugins/slick/slick.min.js"></script>
+    <script src="plugins/slick/slick-animation.min.js"></script>
+
+    <!-- Google Mapl 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+    <script type="text/javascript" src="plugins/google-map/gmap.js"></script>-->
+
+	
+	
+
+    <!-- Main Js File -->
+    <script src="js/script.js"></script>
+	<script src="js/main.js"></script>
+    
+
+
+  </body>
+  </html>
